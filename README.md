@@ -18,6 +18,6 @@ Roboticia horse is an open source quadruped robot. It is fully 3D printed.
 
 ### More on the project
 
-- [Website](http://www.roboticia.com.io)
+- [Website](http://www.roboticia.com)
 - [Facebook](https://www.facebook.com/roboticia)
 
