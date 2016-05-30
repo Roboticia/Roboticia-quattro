@@ -27,7 +27,6 @@ setup(
       author='Julien JEHL',
       author_email='contact@roboticia.com',
       description='Roboticia horse Software Library',
-      long_description=open('README.md').read(),
       url='https://github.com/roboticia/horse',
       license='GNU GENERAL PUBLIC LICENSE Version 3',
 

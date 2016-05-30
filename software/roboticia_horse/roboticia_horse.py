@@ -7,13 +7,13 @@ from functools import partial
 
 from poppy.creatures import AbstractPoppyCreature
 
-#from .primitives.postures import StandPosture, Wave
+from .primitives.leg import Leg
 
 
 class RoboticiaHorse(AbstractPoppyCreature):
     @classmethod
     def setup(cls, robot):
-        #robot.attach_primitive(StandPosture(robot, 2.), 'stand')
+        robot.attach_primitive(Leg(robot,['m41','m42','m43']), 'leg_AD')
         #robot.attach_primitive(Wave(robot), 'wave')
     
         if robot.simulated:

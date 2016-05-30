@@ -7,7 +7,7 @@
         "leg1",
         "leg2",
 		"leg3",
-		"Leg4"
+		"leg4"
       ],
       "port": "auto"
     }
@@ -40,8 +40,8 @@
       "type": "XL-320",
       "id": 11,
       "angle_limit": [
-        -150.0,
-        150.0
+        -70.0,
+        85.0
       ],
       "orientation": "direct"
     },
@@ -50,8 +50,8 @@
       "type": "XL-320",
       "id": 12,
       "angle_limit": [
-        -150.0,
-        150.0
+        -100.0,
+        100.0
       ],
       "orientation": "direct"
     },
@@ -60,8 +60,8 @@
       "type": "XL-320",
       "id": 13,
       "angle_limit": [
-        -150.0,
-        150.0
+        -140.0,
+        140.0
       ],
       "orientation": "direct"
     },
@@ -70,8 +70,8 @@
       "type": "XL-320",
       "id": 21,
       "angle_limit": [
-        -150.0,
-        150.0
+        -85.0,
+        70.0
       ],
       "orientation": "direct"
     },
@@ -80,8 +80,8 @@
       "type": "XL-320",
       "id": 22,
       "angle_limit": [
-        -150.0,
-        150.0
+        -100.0,
+        100.0
       ],
       "orientation": "direct"
     },
@@ -90,8 +90,8 @@
       "type": "XL-320",
       "id": 23,
       "angle_limit": [
-        -150.0,
-        150.0
+        -140.0,
+        140.0
       ],
       "orientation": "direct"
     },
@@ -100,8 +100,8 @@
       "type": "XL-320",
       "id": 31,
       "angle_limit": [
-        -150.0,
-        150.0
+        -70.0,
+        85.0
       ],
       "orientation": "direct"
     },
@@ -110,8 +110,8 @@
       "type": "XL-320",
       "id": 32,
       "angle_limit": [
-        -150.0,
-        150.0
+        -100.0,
+        100.0
       ],
       "orientation": "direct"
     },
@@ -120,8 +120,8 @@
       "type": "XL-320",
       "id": 33,
       "angle_limit": [
-        -150.0,
-        150.0
+        -140.0,
+        140.0
       ],
       "orientation": "direct"
     },
@@ -130,8 +130,8 @@
       "type": "XL-320",
       "id": 41,
       "angle_limit": [
-        -150.0,
-        150.0
+        -85.0,
+        70.0
       ],
       "orientation": "direct"
     },
@@ -140,8 +140,8 @@
       "type": "XL-320",
       "id": 42,
       "angle_limit": [
-        -150.0,
-        150.0
+        -100.0,
+        100.0
       ],
       "orientation": "direct"
     },
@@ -150,8 +150,8 @@
       "type": "XL-320",
       "id": 43,
       "angle_limit": [
-        -150.0,
-        150.0
+        -140.0,
+        140.0
       ],
       "orientation": "direct"
     }
