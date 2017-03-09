@@ -1,1 +1,2 @@
-include roboticia_horse/configuration/*.json
+include roboticia_quattro/configuration/*.json
+include roboticia_quattro/vrep-scene/*.ttt

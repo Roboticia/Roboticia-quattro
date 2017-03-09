@@ -1,0 +1,159 @@
+{
+  "controllers": {
+    "my_dxl_controller": {
+      "sync_read": true,
+      "protocol": 2,
+      "attached_motors": [
+        "leg1",
+        "leg2",
+		"leg3",
+		"leg4"
+      ],
+      "port": "auto"
+    }
+  },
+  "motorgroups": {
+    "leg1": [
+      "m11",
+      "m12",
+	  "m13"
+    ],
+    "leg2": [
+      "m21",
+      "m22",
+	  "m23"
+    ],
+	"leg3": [
+	  "m31",
+	  "m32",
+	  "m33"
+	],
+	"leg4": [
+	  "m41",
+	  "m42",
+	  "m43"
+	]
+  },
+  "motors": {
+    "m11": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 11,
+      "angle_limit": [
+        -70.0,
+        85.0
+      ],
+      "orientation": "direct"
+    },
+    "m12": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 12,
+      "angle_limit": [
+        -100.0,
+        100.0
+      ],
+      "orientation": "direct"
+    },
+    "m13": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 13,
+      "angle_limit": [
+        -140.0,
+        140.0
+      ],
+      "orientation": "direct"
+    },
+    "m21": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 21,
+      "angle_limit": [
+        -85.0,
+        70.0
+      ],
+      "orientation": "direct"
+    },
+	"m22": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 22,
+      "angle_limit": [
+        -100.0,
+        100.0
+      ],
+      "orientation": "direct"
+    },
+	"m23": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 23,
+      "angle_limit": [
+        -140.0,
+        140.0
+      ],
+      "orientation": "direct"
+    },
+	"m31": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 31,
+      "angle_limit": [
+        -70.0,
+        85.0
+      ],
+      "orientation": "direct"
+    },
+	"m32": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 32,
+      "angle_limit": [
+        -100.0,
+        100.0
+      ],
+      "orientation": "direct"
+    },
+	"m33": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 33,
+      "angle_limit": [
+        -140.0,
+        140.0
+      ],
+      "orientation": "direct"
+    },
+	"m41": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 41,
+      "angle_limit": [
+        -85.0,
+        70.0
+      ],
+      "orientation": "direct"
+    },
+	"m42": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 42,
+      "angle_limit": [
+        -100.0,
+        100.0
+      ],
+      "orientation": "direct"
+    },
+	"m43": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 43,
+      "angle_limit": [
+        -140.0,
+        140.0
+      ],
+      "orientation": "direct"
+    }
+  }
+}

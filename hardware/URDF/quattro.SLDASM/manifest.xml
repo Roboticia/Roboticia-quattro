@@ -1,0 +1,6 @@
+<package>
+  <description brief="quattro.SLDASM">quattro.SLDASM</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

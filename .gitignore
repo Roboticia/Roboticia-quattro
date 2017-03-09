@@ -62,4 +62,4 @@ target/
 test_*
 
 #folder with construction files or too big files 
-*_nogit/
+*_nogit*

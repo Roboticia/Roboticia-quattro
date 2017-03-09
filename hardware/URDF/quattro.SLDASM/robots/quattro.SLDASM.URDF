@@ -1,0 +1,211 @@
+<robot
+  name="quattro.SLDASM">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-4.33444102111412E-05 0.00282117025647164 -0.012447430296801"
+        rpy="0 0 0" />
+      <mass
+        value="0.126300113846277" />
+      <inertia
+        ixx="0.000563336494500983"
+        ixy="3.82476104620512E-07"
+        ixz="-2.78187091164671E-08"
+        iyy="0.000161178979212686"
+        iyz="1.78587772397126E-06"
+        izz="0.000692206157084579" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="leg11">
+    <inertial>
+      <origin
+        xyz="5.8390958734833E-11 7.86266607377684E-11 0.00317138378761195"
+        rpy="0 0 0" />
+      <mass
+        value="0.00832103132695626" />
+      <inertia
+        ixx="2.23466315764188E-06"
+        ixy="-6.20440904872423E-15"
+        ixz="1.0420498133953E-15"
+        iyy="2.37822473297719E-06"
+        iyz="1.16457732812674E-16"
+        izz="2.08446817531973E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="m11"
+    type="prismatic">
+    <origin
+      xyz="-0.03968 0.042 0.075599"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="leg11" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg12">
+    <inertial>
+      <origin
+        xyz="-0.0396267390553209 0.0755400746296896 -0.0924999360130028"
+        rpy="0 0 0" />
+      <mass
+        value="0.0373209133237822" />
+      <inertia
+        ixx="2.05550393780223E-05"
+        ixy="3.10121164138848E-12"
+        ixz="1.43749665780576E-09"
+        iyy="2.07080709042872E-05"
+        iyz="-3.61916309587948E-08"
+        izz="3.93300236339501E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="m12"
+    type="revolute">
+    <origin
+      xyz="0.03968 0.075599 -0.042"
+      rpy="3.1416 0 0" />
+    <parent
+      link="leg11" />
+    <child
+      link="leg12" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="leg13">
+    <inertial>
+      <origin
+        xyz="-0.03967998378971 0.0752938731256453 -0.148760302311572"
+        rpy="0 0 0" />
+      <mass
+        value="0.00842182136854289" />
+      <inertia
+        ixx="3.3708405263862E-06"
+        ixy="-2.59902673196582E-12"
+        ixz="3.4725189793958E-12"
+        iyy="4.53085167690933E-06"
+        iyz="-1.882640117226E-08"
+        izz="1.63375515243945E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg13.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quattro.SLDASM/meshes/leg13.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="m13"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="leg12" />
+    <child
+      link="leg13" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

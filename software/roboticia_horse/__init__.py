@@ -1,1 +1,0 @@
-from roboticia_horse import RoboticiaHorse
