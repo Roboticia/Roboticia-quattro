@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 
 def version():
-    with open('roboticia_horse/_version.py') as f:
+    with open('roboticia_quattro/_version.py') as f:
         return re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read()).group(1)
 
 extra = {}
@@ -16,7 +16,7 @@ if sys.version_info >= (3,):
 
 setup(
 
-      name='roboticia-horse',
+      name='roboticia-quattro',
       version=version(),
       packages=find_packages(),
       install_requires=['poppy-creature >= 1.8', 'pypot >= 2.11', 'hampy'],
