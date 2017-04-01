@@ -9,7 +9,7 @@
 		"leg3",
 		"leg4"
       ],
-      "port": "auto"
+      "port": "/dev/ttyAMA0"
     }
   },
   "motorgroups": {
@@ -63,7 +63,7 @@
         -140.0,
         140.0
       ],
-      "orientation": "direct"
+      "orientation": "indirect"
     },
     "m21": {
       "offset": 0.0,
@@ -93,7 +93,7 @@
         -140.0,
         140.0
       ],
-      "orientation": "direct"
+      "orientation": "indirect"
     },
 	"m31": {
       "offset": 0.0,
@@ -123,7 +123,7 @@
         -140.0,
         140.0
       ],
-      "orientation": "direct"
+      "orientation": "indirect"
     },
 	"m41": {
       "offset": 0.0,
@@ -153,7 +153,7 @@
         -140.0,
         140.0
       ],
-      "orientation": "direct"
-    }
-  }
-}
+      "orientation": "indirect"
+	  }
+	}
+ }

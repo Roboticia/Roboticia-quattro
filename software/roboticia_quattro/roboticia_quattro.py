@@ -5,25 +5,85 @@ import ctypes
 
 from functools import partial
 
-from poppy.creatures import AbstractPoppyCreature
+from pypot.creatures import AbstractPoppyCreature
+
+from pypot.robot.controller import SensorsController
+from pypot.robot.sensor import Sensor
+from pypot.sensor import ArduinoSensor
 
 from .primitives.leg import Leg
 
-from .robot_sensors import ArduinoSensor
+class ForceSensor(Sensor):
+    """
+    Define a phidget force sensor
+    """
+    def __init__(self, name, arduino):
+        Sensor.__init__(self, name)
+        self._arduino = arduino
+        
+    def __repr__(self):
+        return ('<ForceSensor name={self.name} '
+                'force = {self.force}>').format(self=self)
+    
+    def close(self):
+        self._arduino.close()
+        
+    @property
+    def force(self):
+        return self._arduino.sensor_dict[self.name]
+        
+class VrepForceSensor(Sensor):
+    """
+    Define a vrep force sensor
+    """
+    def __init__(self, name):
+        Sensor.__init__(self, name)
+        self.force = 0.0
+        
+    def __repr__(self):
+        return ('<ForceSensor name={self.name} '
+                'force = {self.force}>').format(self=self)
 
+class VrepForceController(SensorController):
+    """
+    Update the value of the force sensor read in Vrep
+    """
+    def setup(self):
+        """ Forces a first update to trigger V-REP streaming. """
+        self.update()
+
+    def update(self):
+        """ Update the value of the force sensor. """
+
+        for s in self.sensors:
+            s.force = self.io.call_remote_api('simxReadForceSensor', self.io.get_object_handle(s.name), streaming=True)
 
 class RoboticiaQuattro(AbstractPoppyCreature):
     @classmethod
     def setup(cls, robot):
         #robot.attach_primitive(Leg(robot,['m41','m42','m43']), 'leg_AD')
         #robot.attach_primitive(Wave(robot), 'wave')
+
+        
     
         if robot.simulated :
+            from pypot.vrep.controller import VrepController
+            vrep_io = next(c for c in robot._controllers
+                           if isinstance(c, VrepController)).io
+            sensors = [VrepForceSensor(name) for name in ('f1','f2','f3','f4')]
+            vfc = VrepForceController(vrep_io, sensors)
+            robot._sensors.extend(vfc.sensors)
+            for s in vfc.sensors :
+                setattr(robot, s.name, s)
             cls.vrep_hack(robot)
             cls.add_vrep_methods(robot)
         else :
-            robot.arduino = Arduino('arduino_uno','COM4',115200)
-            robot.sensors.append('arduino')
+            arduino = ArduinoSensor('arduino','/dev/ttyUSB0',115200)
+            arduino.start()
+            sensors = [ForceSensor(name, arduino) for name in ('f1','f2','f3','f4')]
+            robot._sensors.extend(sensors)
+            for s in sensors :
+                setattr(robot, s.name, s)
     
     
     
@@ -41,13 +101,11 @@ class RoboticiaQuattro(AbstractPoppyCreature):
             
     @classmethod
     def add_vrep_methods(cls, robot):
-        from pypot.vrep.controller import VrepController
         from pypot.vrep.io import remote_api
 
         def set_vrep_force(robot, vector_force, shape_name):
             """ Set a force to apply on the robot. """
-            vrep_io = next(c for c in robot._controllers
-                           if isinstance(c, VrepController)).io
+            
 
             raw_bytes = (ctypes.c_ubyte * len(shape_name)).from_buffer_copy(shape_name)
             vrep_io.call_remote_api('simxSetStringSignal', 'shape',
