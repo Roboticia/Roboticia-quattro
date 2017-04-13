@@ -3,10 +3,11 @@
 ## Roboticia-quattro
 
 Roboticia quattro is an open source quadruped robot. It can be easily 3D printed and laser cutted. It works with Dynamixel XL-320 motors, and a Raspberry Pi for control.
+Additional sensors (load cells) can return the weight on the legs.
 
 ![Roboticia-quattro](roboticia-quattro.jpg)
 
-he Roboticia-quattro is suited to understand the walk on four legs and to learn robotic without difficulties.
+The Roboticia-quattro is suited to understand the walk on four legs and to learn robotic without difficulties.
 
 It is particularly well suited for educational purposes (cheap, simple to assemble, and easily controllable).
 There are possibilities of advanced control with its very accurate force sensor on each paw. 
