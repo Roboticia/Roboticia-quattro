@@ -26,8 +26,8 @@ setup(
       zip_safe=False,
       author='Julien JEHL',
       author_email='contact@roboticia.com',
-      description='Roboticia horse Software Library',
-      url='https://github.com/roboticia/horse',
+      description='Roboticia quattro Software Library',
+      url='https://github.com/roboticia/quattro',
       license='GNU GENERAL PUBLIC LICENSE Version 3',
 
       **extra

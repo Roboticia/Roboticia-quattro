@@ -84,6 +84,8 @@ class RoboticiaQuattro(AbstractPoppyCreature):
             robot._sensors.extend(sensors)
             for s in sensors :
                 setattr(robot, s.name, s)
+            for m in robot.motors :
+                m.pid = (8.0,15.0,0.0)
     
     
     
