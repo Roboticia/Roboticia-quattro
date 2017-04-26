@@ -12,6 +12,7 @@ from pypot.robot.sensor import Sensor
 from pypot.sensor import ArduinoSensor
 
 from .primitives.leg import Leg
+from .primitives.start_posture import StartPosture
 
 class ForceSensor(Sensor):
     """
@@ -44,7 +45,7 @@ class VrepForceSensor(Sensor):
         return ('<ForceSensor name={self.name} '
                 'force = {self.force}>').format(self=self)
 
-class VrepForceController(SensorController):
+class VrepForceController(SensorsController):
     """
     Update the value of the force sensor read in Vrep
     """
@@ -56,14 +57,17 @@ class VrepForceController(SensorController):
         """ Update the value of the force sensor. """
 
         for s in self.sensors:
-            s.force = self.io.call_remote_api('simxReadForceSensor', self.io.get_object_handle(s.name), streaming=True)
+            s.force = self.io.call_remote_api('simxReadForceSensor', self.io.get_object_handle(s.name), streaming=True)[1][2]*100
 
 class RoboticiaQuattro(AbstractPoppyCreature):
     @classmethod
     def setup(cls, robot):
-        #robot.attach_primitive(Leg(robot,['m41','m42','m43']), 'leg_AD')
-        #robot.attach_primitive(Wave(robot), 'wave')
-
+        robot.attach_primitive(Leg(robot,'leg1'), 'leg_1')
+        robot.attach_primitive(Leg(robot,'leg2'), 'leg_2')
+        robot.attach_primitive(Leg(robot,'leg3'), 'leg_3')
+        robot.attach_primitive(Leg(robot,'leg4'), 'leg_4')
+        
+        robot.attach_primitive(StartPosture(robot,3), 'start_posture')
         
     
         if robot.simulated :
@@ -72,6 +76,7 @@ class RoboticiaQuattro(AbstractPoppyCreature):
                            if isinstance(c, VrepController)).io
             sensors = [VrepForceSensor(name) for name in ('f1','f2','f3','f4')]
             vfc = VrepForceController(vrep_io, sensors)
+            vfc.start()
             robot._sensors.extend(vfc.sensors)
             for s in vfc.sensors :
                 setattr(robot, s.name, s)
@@ -85,7 +90,7 @@ class RoboticiaQuattro(AbstractPoppyCreature):
             for s in sensors :
                 setattr(robot, s.name, s)
             for m in robot.motors :
-                m.pid = (8.0,15.0,0.0)
+                m.pid = (6.0,10.0,0.0)
     
     
     
@@ -95,7 +100,7 @@ class RoboticiaQuattro(AbstractPoppyCreature):
     @classmethod
     def vrep_hack(cls, robot):
         # fix vrep orientation bug
-        wrong_motor = []
+        wrong_motor = [robot.m13,robot.m23,robot.m33,robot.m43]
         
         for m in wrong_motor:
             m.direct = not m.direct
